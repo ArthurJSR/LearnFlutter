@@ -33,14 +33,12 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context)
-    .size;
+    var size = MediaQuery.of(context).size;
     return Scaffold(
       bottomNavigationBar: BottomNavBar(),
-      body: Stack(
-        children: <Widget>[
+      body: Stack(children: <Widget>[
         Container(
-          height: size.height * .45,
+          height: size.height * .50,
           decoration: BoxDecoration(
             color: Color(0xFFF5CEB8),
             image: DecorationImage(
@@ -51,7 +49,7 @@ class HomeScreen extends StatelessWidget {
         ),
         SafeArea(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
+            padding: const EdgeInsets.symmetric(horizontal: 5),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
@@ -76,7 +74,7 @@ class HomeScreen extends StatelessWidget {
                       ?.copyWith(fontWeight: FontWeight.w900),
                 ),
                 Container(
-                  margin: EdgeInsets.symmetric(vertical: 30),
+                  margin: EdgeInsets.symmetric(horizontal: 10, vertical: 25),
                   padding: EdgeInsets.symmetric(horizontal: 30, vertical: 5),
                   decoration: BoxDecoration(
                     color: Colors.white,
@@ -93,9 +91,9 @@ class HomeScreen extends StatelessWidget {
                 Expanded(
                   child: GridView.count(
                     crossAxisCount: 2,
-                    childAspectRatio: .85,
-                    crossAxisSpacing: 20,
-                    mainAxisSpacing: 20,
+                    childAspectRatio: .80,
+                    crossAxisSpacing: 1,
+                    mainAxisSpacing: 1,
                     children: <Widget>[
                       CategoryCard(
                         title: "Diet Recommendation",
