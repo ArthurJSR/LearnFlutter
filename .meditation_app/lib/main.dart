@@ -66,12 +66,15 @@ class HomeScreen extends StatelessWidget {
                     child: SvgPicture.asset("assets/icons/menu.svg"),
                   ),
                 ),
-                Text(
-                  "Good Mornign \nShishir",
-                  style: Theme.of(context)
-                      .textTheme
-                      .displaySmall
-                      ?.copyWith(fontWeight: FontWeight.w900),
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 15),
+                  child: Text(
+                    "Good Mornign \nShishir",
+                    style: Theme.of(context)
+                        .textTheme
+                        .displaySmall
+                        ?.copyWith(fontWeight: FontWeight.w900),
+                  ),
                 ),
                 Container(
                   margin: EdgeInsets.symmetric(horizontal: 10, vertical: 25),
