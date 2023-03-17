@@ -40,7 +40,7 @@ class CategoryCard extends StatelessWidget {
         child: Material(
           color: Colors.transparent,
           child: InkWell(
-            onTap: () {},
+            onTap: (){press();},
             child: Padding(
               padding: const EdgeInsets.all(10),
               child: Column(children: <Widget>[

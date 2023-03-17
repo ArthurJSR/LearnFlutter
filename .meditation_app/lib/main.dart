@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:meditation_app/Screens/details_screen.dart';
 import 'package:meditation_app/constants.dart';
 import 'package:meditation_app/widgets/bottom_nav_bar.dart';
 import 'package:meditation_app/widgets/category_card.dart';
+import 'package:meditation_app/widgets/search_bar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -76,21 +78,7 @@ class HomeScreen extends StatelessWidget {
                         ?.copyWith(fontWeight: FontWeight.w900),
                   ),
                 ),
-                Container(
-                  margin: EdgeInsets.symmetric(horizontal: 10, vertical: 25),
-                  padding: EdgeInsets.symmetric(horizontal: 30, vertical: 5),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(29.5),
-                  ),
-                  child: TextField(
-                    decoration: InputDecoration(
-                      hintText: "Search",
-                      icon: SvgPicture.asset("assets/icons/search.svg"),
-                      border: InputBorder.none,
-                    ),
-                  ),
-                ),
+                SearchBar(),
                 Expanded(
                   child: GridView.count(
                     crossAxisCount: 2,
@@ -111,7 +99,14 @@ class HomeScreen extends StatelessWidget {
                       CategoryCard(
                         title: "Meditation",
                         svgScr: "assets/icons/Meditation.svg",
-                        press: () {},
+                        press: () {
+                          Navegator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) {
+                              return DetailsScreen();
+                            }),
+                          );
+                        },
                       ),
                       CategoryCard(
                         title: "Yoga",
@@ -128,4 +123,8 @@ class HomeScreen extends StatelessWidget {
       ]),
     );
   }
+}
+
+class Navegator {
+  static void push(BuildContext context, MaterialPageRoute materialPageRoute) {}
 }
