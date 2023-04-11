@@ -1,7 +1,8 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 // ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
 import 'package:meditation_app/constants.dart';
 import 'package:meditation_app/widgets/bottom_nav_bar.dart';
 import 'package:meditation_app/widgets/search_bar.dart';
@@ -63,34 +64,29 @@ class DetailsScreen extends StatelessWidget {
                       // ignore: prefer_const_literals_to_create_immutables
                       children: <Widget>[
                         SeassionCard(
-                          press: () {},
                           seassionNum: 1,
                           isDone: true,
+                          press: () {},
                         ),
                         SeassionCard(
-                          press: () {},
                           seassionNum: 2,
-                          isDone: false,
+                          press: () {},
                         ),
                         SeassionCard(
-                          press: () {},
                           seassionNum: 3,
-                          isDone: false,
+                          press: () {},
                         ),
                         SeassionCard(
-                          press: () {},
                           seassionNum: 4,
-                          isDone: false,
+                          press: () {},
                         ),
                         SeassionCard(
-                          press: () {},
                           seassionNum: 5,
-                          isDone: false,
+                          press: () {},
                         ),
                         SeassionCard(
-                          press: () {},
                           seassionNum: 6,
-                          isDone: true,
+                          press: () {},
                         ),
                       ],
                     ),
@@ -104,11 +100,12 @@ class DetailsScreen extends StatelessWidget {
                     ),
                     Container(
                       margin: EdgeInsets.symmetric(vertical: 20),
+                      padding: EdgeInsets.all(10),
                       height: 90,
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(13),
-                        boxShadow: [
+                        boxShadow: const [
                           BoxShadow(
                             offset: Offset(0, 17),
                             blurRadius: 23,
@@ -159,11 +156,11 @@ class SeassionCard extends StatelessWidget {
   final bool isDone;
   final Function press;
   const SeassionCard({
-    super.key,
+    Key? key,
     this.seassionNum = 0,
     this.isDone = true,
     required this.press,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -189,9 +186,7 @@ class SeassionCard extends StatelessWidget {
           child: Material(
             color: Colors.transparent,
             child: InkWell(
-              onTap: () {
-                press();
-              },
+              onTap: press(),
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Row(children: <Widget>[
@@ -199,17 +194,16 @@ class SeassionCard extends StatelessWidget {
                     height: 42,
                     width: 43,
                     decoration: BoxDecoration(
-                        color: isDone ? kBlueColor : Colors.white,
-                        shape: BoxShape.circle,
-                        border: Border.all(color: kBlueColor)),
+                      color: isDone ? kBlueColor : Colors.white,
+                      shape: BoxShape.circle,
+                      border: Border.all(color: kBlueColor),
+                    ),
                     child: Icon(
                       Icons.play_arrow,
                       color: isDone ? Colors.white : kBlueColor,
                     ),
                   ),
-                  SizedBox(
-                    width: 10,
-                  ),
+                  SizedBox(width: 10),
                   Text(
                     "Session $seassionNum",
                     style: Theme.of(context).textTheme.titleSmall,

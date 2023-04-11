@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:meditation_app/Screens/details_screen.dart';
 import 'package:meditation_app/constants.dart';
 import 'package:meditation_app/widgets/bottom_nav_bar.dart';
@@ -35,15 +35,17 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
+    var size = MediaQuery.of(context)
+    .size;
     return Scaffold(
-      bottomNavigationBar: BottomNavBar(),
+      bottomNavigationBar: const BottomNavBar(),
       body: Stack(children: <Widget>[
         Container(
           height: size.height * .50,
+          // ignore: prefer_const_constructors
           decoration: BoxDecoration(
-            color: Color(0xFFF5CEB8),
-            image: DecorationImage(
+            color: const Color(0xFFF5CEB8),
+            image: const DecorationImage(
               alignment: Alignment.centerLeft,
               image: AssetImage("assets/images/undraw_pilates_gpdb.png"),
             ),
@@ -61,7 +63,7 @@ class HomeScreen extends StatelessWidget {
                     alignment: Alignment.center,
                     height: 52,
                     width: 52,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       color: Color(0xFFF2BEA1),
                       shape: BoxShape.circle,
                     ),
@@ -69,7 +71,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.symmetric(horizontal: 15),
+                  padding: const EdgeInsets.symmetric(horizontal: 15),
                   child: Text(
                     "Good Mornign \nShishir",
                     style: Theme.of(context)
@@ -83,8 +85,8 @@ class HomeScreen extends StatelessWidget {
                   child: GridView.count(
                     crossAxisCount: 2,
                     childAspectRatio: .80,
-                    crossAxisSpacing: 1,
-                    mainAxisSpacing: 1,
+                    crossAxisSpacing: 0.50,
+                    mainAxisSpacing: 0.50,
                     children: <Widget>[
                       CategoryCard(
                         title: "Diet Recommendation",
@@ -100,11 +102,10 @@ class HomeScreen extends StatelessWidget {
                         title: "Meditation",
                         svgScr: "assets/icons/Meditation.svg",
                         press: () {
-                          Navegator.push(
+                          Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) {
-                              return DetailsScreen();
-                            }),
+                            MaterialPageRoute(builder: (context) => DetailsScreen()
+                            ),
                           );
                         },
                       ),
@@ -123,8 +124,4 @@ class HomeScreen extends StatelessWidget {
       ]),
     );
   }
-}
-
-class Navegator {
-  static void push(BuildContext context, MaterialPageRoute materialPageRoute) {}
 }

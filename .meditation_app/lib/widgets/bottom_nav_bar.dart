@@ -1,15 +1,11 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first, prefer_const_constructors
-// ignore_for_file: deprecated_member_use
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
 import 'package:meditation_app/constants.dart';
 
 class BottomNavBar extends StatelessWidget {
   const BottomNavBar({
-    super.key,
-  });
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,8 +14,7 @@ class BottomNavBar extends StatelessWidget {
       height: 80,
       color: Colors.white,
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        // ignore: prefer_const_literals_to_create_immutables
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           BottomNavItem(
             title: "Today",
@@ -66,7 +61,7 @@ class BottomNavItem extends StatelessWidget {
             SvgPicture.asset(
               svgScr,
               color: isActive ? kActiveIconColor : kTextColor,
-              ),
+            ),
             Text(
               title,
               style: TextStyle(color: isActive ? kActiveIconColor : kTextColor),
