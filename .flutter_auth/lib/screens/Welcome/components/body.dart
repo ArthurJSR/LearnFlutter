@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_auth/constants.dart';
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+import 'package:flutter_auth/screens/Login/login_screen.dart';
+>>>>>>> 55c07b7499d89908fa27bfcaf0f97e4a377600bd
 =======
 import 'package:flutter_auth/screens/Login/login_screen.dart';
 >>>>>>> 55c07b7499d89908fa27bfcaf0f97e4a377600bd
